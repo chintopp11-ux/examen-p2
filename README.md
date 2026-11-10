@@ -113,6 +113,52 @@ Para consultar el estado de la API:
 
     Invoke-RestMethod http://localhost:5000/health
 
+### 9 Preparar el entorno
+
+Clonar el repositorio:
+
+    git clone https://github.com/chintopp11-ux/examen-p2.git
+
+Entrar a la carpeta:
+
+    cd examen-p2
+
+Crear el archivo de variables de entorno:
+
+    Copy-Item .env.example .env
+
+Editar el archivo .env y configurar una contraseña propia para PostgreSQL.
+
+### 9.2. Generar el dataset
+
+Ejecutar el generador:
+
+    python .\generar_dataset.py
+
+Cuando se solicite, ingresar la misma matrícula utilizada para generar el dataset original.
+
+El programa genera un archivo CSV de 5,000,000 de registros.
+
+### 9.3. Construir e iniciar los contenedores
+
+Ejecutar:
+
+    docker compose up -d --build
+
+Consultar el estado de los servicios:
+
+    docker compose ps
+
+### 9.4. Consultar los resultados
+
+Consultar los resultados:
+
+    Invoke-RestMethod http://localhost:5000/resultados
+
+Consultar el estado de la API:
+
+    Invoke-RestMethod http://localhost:5000/health
+
 ## 10. Conclusión
 
 El proyecto permitió implementar un pipeline de datos contenerizado que integra procesamiento MapReduce, almacenamiento relacional y consulta mediante una API REST.
