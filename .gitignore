@@ -1,0 +1,14 @@
+
+# Archivos de datos
+*.csv
+
+# Variables de entorno
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Archivos temporales
+*.log
